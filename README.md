@@ -1,54 +1,41 @@
-# React + TypeScript + Vite
+---
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📁 `kdh_todo_frontend/README.md`
 
-Currently, two official plugins are available:
+# 🖥️ KDH Todo Frontend
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+React 기반의 Todo 프론트엔드 SPA입니다.  
+React Router를 활용한 CSR 방식이며, JWT 인증으로 Spring Boot API와 통신합니다.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## ✅ 주요 기술 스택
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- React 18
+- React Router v6+
+- TypeScript
+- Axios
+- TailwindCSS
+- Vite
+- JWT (sessionStorage 저장)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ⚙️ 구현 기능
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+| 기능 | 설명 |
+|------|------|
+| ✅ Todo 리스트 | `/todo/list` |
+| ✅ Todo 등록 | `/todo/add` |
+| ✅ Todo 수정/조회 | `/todo/edit/:tno`, `/todo/read/:tno` |
+| ✅ 로그인 페이지 | `/login` |
+| ✅ JWT 인증 처리 | 토큰 보관 후 요청 시 헤더 포함 |
+| ✅ 로그아웃 버튼 | 헤더 내 포함 |
+| ✅ 간단한 페이징 | 프론트단 페이지네이션 |
+
+---
+## 🚀 실행 방법
+
+```bash
+npm install
+npm run dev
