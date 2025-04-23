@@ -1,12 +1,12 @@
-// src/components/layout/Header.tsx
 import { Link, useNavigate } from 'react-router-dom'
 
 export default function Header() {
     const navigate = useNavigate()
+    const isLoggedIn = !!sessionStorage.getItem('ACCESS_TOKEN') // ✅ 로그인 상태 판단
 
     const handleLogout = () => {
-        sessionStorage.removeItem('ACCESS_TOKEN') // ✅ 토큰 삭제
-        navigate('/login') // ✅ 로그인 페이지로 이동
+        sessionStorage.removeItem('ACCESS_TOKEN')
+        navigate('/login')
     }
 
     return (
@@ -18,12 +18,21 @@ export default function Header() {
                     <Link to="/product/list" className="hover:underline">Product</Link>
                     <Link to="/board/list" className="hover:underline">Board</Link>
 
-                    <button
-                        onClick={handleLogout}
-                        className="ml-4 bg-white text-blue-600 px-3 py-1 rounded hover:bg-gray-100"
-                    >
-                        로그아웃
-                    </button>
+                    {isLoggedIn ? (
+                        <button
+                            onClick={handleLogout}
+                            className="ml-4 bg-white text-blue-600 px-3 py-1 rounded hover:bg-gray-100"
+                        >
+                            로그아웃
+                        </button>
+                    ) : (
+                        <Link
+                            to="/login"
+                            className="ml-4 bg-white text-blue-600 px-3 py-1 rounded hover:bg-gray-100"
+                        >
+                            로그인
+                        </Link>
+                    )}
                 </nav>
             </div>
         </header>
