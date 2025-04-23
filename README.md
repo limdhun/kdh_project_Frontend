@@ -2,7 +2,6 @@
 
 ## 📁 `kdh_todo_frontend/README.md`
 
-```md
 # 🖥️ KDH Todo Frontend
 
 React 기반의 Todo 프론트엔드 SPA입니다.  
